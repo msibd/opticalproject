@@ -26,6 +26,13 @@ body[data-project="optical"]{--com-accent:#0e4f5c;--com-soft:#e8f3f4}
 .com-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #edf0f0}
 .com-row strong{display:block}.com-muted{color:#667277;font-size:12px}.com-price{white-space:nowrap;font-weight:700;color:var(--com-accent)}
 .com-actions{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.com-actions button{border:1px solid #cbd5d5;background:#fff;border-radius:7px;padding:4px 9px;cursor:pointer;font:inherit}
+.com-dialog .com-actions button{min-height:38px;border-color:var(--com-accent);background:#fff;color:var(--com-accent);font-size:14px;font-weight:700;padding:6px 12px}
+.com-dialog .com-actions button[data-com="qty"]{min-width:38px;padding:4px;font-size:21px;line-height:1}
+.com-dialog .com-actions button[data-com="remove"]{background:var(--com-soft)}
+.com-dialog .com-actions button:hover{background:var(--com-accent);color:#fff}
+.com-dialog .com-actions button:focus-visible{outline:3px solid #e4ae45;outline-offset:2px}
+.com-dialog .com-row .com-actions button[data-com="qty"],.com-dialog .com-row .com-actions button[data-com="remove"]{background:var(--com-accent);border-color:var(--com-accent);color:#fff;opacity:1}
+.com-dialog .com-row .com-actions button[data-com="qty"]:hover,.com-dialog .com-row .com-actions button[data-com="remove"]:hover{filter:brightness(.88)}
 .com-summary{background:var(--com-soft);border-radius:12px;padding:14px;margin:14px 0}.com-summary div{display:flex;justify-content:space-between;gap:15px;margin:3px 0}.com-summary .total{font-size:18px;font-weight:700;border-top:1px solid #cbd1d1;margin-top:9px;padding-top:9px}
 .com-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.com-field{display:flex;flex-direction:column;gap:5px;font-weight:600}.com-field.full{grid-column:1/-1}.com-field input,.com-field select,.com-field textarea{box-sizing:border-box;width:100%;border:1px solid #bdc9ca;border-radius:8px;padding:10px;font:inherit;background:#fff;color:#192326}.com-field textarea{min-height:74px;resize:vertical}
 .com-bottom{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:16px}.com-note{background:#fff8e5;border:1px solid #eddaa7;padding:10px 12px;border-radius:9px;font-size:12px;margin:12px 0}

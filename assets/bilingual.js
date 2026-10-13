@@ -18,7 +18,15 @@
     'স্টকে আছে':'In stock','← হোমে ফিরুন':'← Back to home','← ফিরে যান':'← Back',
     'প্রধান মেনু':'Main menu','অ্যাকাউন্ট মেনু':'Account menu','অ্যাডমিন মেনু':'Admin menu',
     'সার্চ মুছুন':'Clear search','পণ্য খুঁজুন':'Search products','গাইডের অগ্রগতি':'Guide progress',
-    'গোল':'Round','ডিম্বাকৃতি':'Oval','চৌকো':'Square','আয়তাকার':'Rectangular','হৃদয়াকৃতি':'Heart-shaped'
+    'গোল':'Round','ডিম্বাকৃতি':'Oval','চৌকো':'Square','আয়তাকার':'Rectangular','হৃদয়াকৃতি':'Heart-shaped',
+    'চশমার অফার ও সংগ্রহ':'Eyewear offers and collection','পরিবারের জন্য':'For the family','নতুন লুক':'A fresh look','প্রতিদিনের স্বস্তি':'Everyday comfort',
+    'সব বয়সে মানানসই চশমা':'Eyewear for every age','কাজে ও স্টাইলে নতুন ফ্রেম':'New frames for work and style','পড়া ও চলাফেরায় পরিষ্কার দৃষ্টি':'Clear vision for reading and daily life',
+    'স্কুল থেকে দৈনন্দিন জীবন—পছন্দের ফ্রেম খুঁজুন, শোরুমে ফিটিং যাচাই করুন।':'From school to daily life, find a frame you love and check the fit in store.',
+    'আপনার মুখের আকৃতি ও ব্যবহার অনুযায়ী ফ্রেম বেছে নিন।':'Choose frames for your face shape and daily use.',
+    'চোখ পরীক্ষার সময় নিন; পাওয়ার ও লেন্স অপ্টোমেট্রিস্ট যাচাই করবেন।':'Book an eye exam; an optometrist will check your prescription and lenses.',
+    'চশমা পরা শিশু ও তার মা':'A child wearing glasses with his mother','চশমা পরা তরুণ পেশাজীবী নারী':'A young professional woman wearing glasses',
+    'চশমা পরে বই পড়ছেন প্রবীণ ব্যক্তি':'An older man reading a book while wearing glasses','আগের স্লাইড':'Previous slide','পরের স্লাইড':'Next slide',
+    'স্লাইড 1 দেখুন':'Show slide 1','স্লাইড 2 দেখুন':'Show slide 2','স্লাইড 3 দেখুন':'Show slide 3'
   };
   var bangla={
     'Home':'হোম','Cakes':'কেক','Dessert':'ডেজার্ট','Desserts':'ডেজার্ট','Sweets':'মিষ্টি','Pastry':'পেস্ট্রি','Pastries':'পেস্ট্রি',
