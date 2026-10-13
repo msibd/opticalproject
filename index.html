@@ -104,6 +104,24 @@ svg{vertical-align:-3px}
 .hero h2{font-size:46px;line-height:1.15;margin:0 0 12px;font-weight:600;color:#12262B}
 .hero h2 em{font-style:normal;color:#0E4F5C;display:block}
 .hero p{max-width:460px;color:#41585E;margin:0 0 18px;font-size:15px}
+.opt-hero{position:relative;min-width:0;min-height:470px;align-self:stretch;overflow:hidden;border-radius:20px;background:#dcebee;box-shadow:0 10px 28px rgba(14,79,92,.14)}
+.opt-slide{position:absolute;inset:0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .55s ease,visibility .55s ease}
+.opt-slide.on{opacity:1;visibility:visible;pointer-events:auto}
+.opt-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:61% center}
+.opt-slide:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(239,247,247,.99) 0%,rgba(239,247,247,.96) 35%,rgba(239,247,247,.63) 57%,rgba(239,247,247,.08) 100%)}
+.opt-slide-copy{position:absolute;z-index:1;left:26px;right:20px;top:50%;transform:translateY(-50%);max-width:65%}
+.opt-slide-copy .htag{margin-bottom:10px;font-weight:600}
+.opt-slide-copy h2{font-size:clamp(26px,3vw,40px);line-height:1.13;max-width:350px;margin-bottom:12px;text-wrap:balance}
+.opt-slide-copy p{max-width:315px;font-size:14px;line-height:1.55;color:#28444b;margin-bottom:12px}
+.opt-offer{display:inline-block;max-width:100%;padding:6px 10px;margin:0 0 16px;border-radius:8px;background:#0e4f5c;color:#fff;font-size:13px;font-weight:700;line-height:1.4}
+.opt-offer[hidden]{display:none}
+.opt-slide-copy .hb{gap:8px}.opt-slide-copy .hb button{font-size:13px;padding:8px 15px}
+.opt-hero-controls{position:absolute;z-index:3;left:26px;bottom:18px;display:flex;align-items:center;gap:7px}
+.opt-hero-controls button{width:34px;height:34px;padding:0;border:1px solid #a4c1c6;border-radius:50%;background:rgba(255,255,255,.95);color:#0e4f5c;font-weight:700}
+.opt-hero-controls button:hover,.opt-hero-controls button:focus-visible{background:#0e4f5c;color:#fff}
+.opt-hero-controls .opt-dot{width:10px;height:10px;border:0;border-radius:50%;background:#8aabb0;margin:0 2px}
+.opt-hero-controls .opt-dot.on{width:24px;border-radius:10px;background:#0e4f5c}
+.opt-hero-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .hb{display:flex;gap:10px;flex-wrap:wrap}
 .hb .p{background:#0E4F5C;color:#fff;border-radius:999px;padding:9px 26px;font-weight:500;box-shadow:0 6px 14px rgba(14,79,92,.28);border-color:#0E4F5C}
 .hb .s{background:#fff;color:#12262B;border-radius:999px;padding:9px 22px;font-weight:500}
@@ -197,6 +215,9 @@ svg{vertical-align:-3px}
 .rnote{font-size:11px;color:#7B8F94;margin-top:6px}
 .trust{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px;font-size:13px;color:#2F454B}
 @media (max-width:760px){.hero{grid-template-columns:1fr;padding:22px 16px}.hero h2{font-size:34px}.ftr .cols{grid-template-columns:1fr}.hh{padding:10px 14px}.coll{padding:18px 12px 6px}.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.opt-hero{min-height:440px}.opt-slide-copy h2{font-size:clamp(25px,7vw,38px)}}
+@media (max-width:520px){.opt-hero{min-height:425px}.opt-slide img{object-position:63% center}.opt-slide:after{background:linear-gradient(90deg,rgba(239,247,247,.98) 0%,rgba(239,247,247,.94) 43%,rgba(239,247,247,.28) 100%)}.opt-slide-copy{left:18px;max-width:69%}.opt-slide-copy h2{font-size:clamp(23px,6.5vw,31px)}.opt-slide-copy p{font-size:12px}.opt-slide-copy .hb button{padding:7px 12px}.opt-hero-controls{left:18px}}
+@media (prefers-reduced-motion:reduce){.opt-slide{transition:none}}
 @media (max-width:520px){.wrap{padding:16px 10px 40px}}
 
 /* ---- responsive fixes ---- */
@@ -324,7 +345,7 @@ svg{vertical-align:-3px}
 .pvmore{font-size:12px;opacity:.65;margin-top:10px}
 @media (max-width:760px){.pv{padding:12px 12px 18px}.pvt{font-size:24px}.pvdl b{flex:0 0 100%}}
 </style>
-<link rel="stylesheet" href="assets/commerce.css">
+<link rel="stylesheet" href="assets/commerce.css?v=optical-carousel-1">
 </head>
 <body data-project="optical">
 <main class="wrap">
@@ -398,6 +419,17 @@ var tiles=FACES.map(function(x){return '<button type="button" class="ft'+(x[0]==
 var uses=USES.map(function(x){return '<button type="button" class="up'+(x[0]===u?' on':'')+'" data-u="'+x[0]+'">'+x[1]+'</button>'}).join('');
 var cards=ord.map(function(t,i){return '<div class="rc"><div class="art" style="background:'+TINT[GL.indexOf(t)]+'">'+G(t,'#0E4F5C','none','72%')+(i===0?'<span class="mb" style="background:#0E4F5C;color:#fff">সেরা মিল</span>':'')+'</div><div class="rn">'+FNAME[t]+'</div><div class="rp">'+SC[f][t]+'% মিল</div><div class="rf">'+FFEAT[t]+'</div></div>'}).join('');
 return '<div class="rt">আপনার জন্য সাজেশন</div><div class="rl">১. মুখের আকৃতি</div><div class="fts">'+tiles+'</div><div class="rl">২. প্রধান ব্যবহার</div><div class="ups">'+uses+'</div><div class="rrule">'+FRULE[f]+'</div><div class="rcs">'+cards+'</div><div class="lensb"><b>লেন্স সাজেশন: '+LENSU[u][0]+'</b><span>'+LENSU[u][1]+'</span></div><div class="rnote">এটি স্টাইল ও ব্যবহারভিত্তিক পরামর্শ। পাওয়ার ও চূড়ান্ত লেন্স অপ্টোমেট্রিস্ট যাচাই করেন।</div>'}
+var HERO_SLIDES=[
+ {image:'hero-child-glasses.webp',alt:'চশমা পরা শিশু ও তার মা',tag:'পরিবারের জন্য',title:'সব বয়সে মানানসই চশমা',description:'স্কুল থেকে দৈনন্দিন জীবন—পছন্দের ফ্রেম খুঁজুন, শোরুমে ফিটিং যাচাই করুন।',offer:'category'},
+ {image:'hero-young-glasses.webp',alt:'চশমা পরা তরুণ পেশাজীবী নারী',tag:'নতুন লুক',title:'কাজে ও স্টাইলে নতুন ফ্রেম',description:'আপনার মুখের আকৃতি ও ব্যবহার অনুযায়ী ফ্রেম বেছে নিন।',offer:'category'},
+ {image:'hero-senior-glasses.webp',alt:'চশমা পরে বই পড়ছেন প্রবীণ ব্যক্তি',tag:'প্রতিদিনের স্বস্তি',title:'পড়া ও চলাফেরায় পরিষ্কার দৃষ্টি',description:'চোখ পরীক্ষার সময় নিন; পাওয়ার ও লেন্স অপ্টোমেট্রিস্ট যাচাই করবেন।',offer:'delivery'}
+];
+function heroHTML(){return '<div class="opt-hero" id="opt-hero" role="region" aria-roledescription="carousel" aria-label="চশমার অফার ও সংগ্রহ">'+HERO_SLIDES.map(function(slide,i){return '<div class="opt-slide'+(i===0?' on':'')+'" role="group" aria-roledescription="slide" aria-label="'+(i+1)+' / '+HERO_SLIDES.length+'" aria-hidden="'+(i!==0)+'"'+(i?' inert':'')+'><img src="assets/'+slide.image+'" alt="'+slide.alt+'" '+(i?'loading="lazy"':'fetchpriority="high"')+' decoding="async"><div class="opt-slide-copy"><span class="htag">'+slide.tag+'</span><h2>'+slide.title+'</h2><p>'+slide.description+'</p><span class="opt-offer" data-opt-promo="'+slide.offer+'">চলতি অফার দেখুন</span><div class="hb"><button class="p" type="button">ফ্রেম দেখুন ›</button><button class="s" type="button">চোখ পরীক্ষার সময় নিন</button></div></div></div>'}).join('')+'<div class="opt-hero-controls"><button type="button" data-hero-go="prev" aria-label="আগের স্লাইড">‹</button>'+HERO_SLIDES.map(function(_,i){return '<button type="button" class="opt-dot'+(i===0?' on':'')+'" data-hero-go="'+i+'" aria-label="স্লাইড '+(i+1)+' দেখুন" aria-current="'+(i===0)+'"></button>'}).join('')+'<button type="button" data-hero-go="next" aria-label="পরের স্লাইড">›</button><span class="opt-hero-sr" id="opt-hero-status" aria-live="polite">১ / '+HERO_SLIDES.length+'</span></div></div>'}
+var heroIndex=0,heroTimer=0;
+function heroSet(next){var root=$('opt-hero');if(!root)return;heroIndex=(next+HERO_SLIDES.length)%HERO_SLIDES.length;root.querySelectorAll('.opt-slide').forEach(function(slide,i){var on=i===heroIndex;slide.classList.toggle('on',on);slide.setAttribute('aria-hidden',String(!on));slide.inert=!on});root.querySelectorAll('.opt-dot').forEach(function(dot,i){var on=i===heroIndex;dot.classList.toggle('on',on);dot.setAttribute('aria-current',String(on))});$('opt-hero-status').textContent=(heroIndex+1)+' / '+HERO_SLIDES.length}
+function heroPause(){clearInterval(heroTimer);heroTimer=0}
+function heroPlay(){heroPause();if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;heroTimer=setInterval(function(){if(!document.hidden&&!$('p0').hidden)heroSet(heroIndex+1)},6500)}
+function heroInit(){var root=$('opt-hero');if(!root)return;heroSet(0);heroPlay();root.addEventListener('mouseenter',heroPause);root.addEventListener('mouseleave',heroPlay);root.addEventListener('focusin',heroPause);root.addEventListener('focusout',function(e){if(!root.contains(e.relatedTarget))heroPlay()});root.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();heroSet(heroIndex+(e.key==='ArrowRight'?1:-1));heroPause()}})}
 function hpHTML(){
 var rows=CATS.map(function(c){
 var cards=c[2].map(function(p){var ft=GL.indexOf(p[2])>-1&&c[3]?p[2]:'';var dark=c[0]==='sun';return '<div class="pc"'+(ft?' data-ft="'+ft+'"':'')+'><div class="art" style="background:'+TINT[p[3]]+'">'+ART(p[2],dark?'#12262B':'#0E4F5C',dark?'rgba(18,38,43,.78)':'none','64%')+(ft?'<span class="mb"></span>':'')+'</div><div class="n">'+p[0]+'</div><div class="pr">৳ '+p[1]+'</div><button class="add" type="button" data-n="'+p[0]+'">Add to Cart</button></div>'}).join('');
@@ -409,9 +441,7 @@ return '<div class="site"><div class="ann">শোরুমে চোখ পর�
 +'<div class="fbar"><div class="srch" role="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="ফ্রেম, সানগ্লাস, লেন্স খুঁজুন…" autocomplete="off" enterkeyhint="search" aria-label="পণ্য খুঁজুন"><button type="button" class="sx" id="qx" aria-label="সার্চ মুছুন" hidden>×</button></div><select id="fsel" aria-label="ক্যাটেগরি">'+opts+'</select><button type="button" id="frange">দাম রেঞ্জ</button><div class="cartf" id="cartf">'+ic(I.bag,'#12262B',20)+'<b id="cn">'+cartN+'</b>কার্ট</div></div>'
 +'<div id="cv" class="cv" hidden></div>'
 +'<div id="pv" class="pv" hidden></div>'
-+'<div class="hero"><div><span class="htag">Optical Recommendation</span><h2>আপনার মুখ ও চোখের জন্য সঠিক চশমা<em>এক মিনিটে খুঁজে নিন</em></h2><p>মুখের আকৃতি আর ব্যবহার বলুন, আমরা ফ্রেম ও লেন্স সাজেস্ট করব। প্রেসক্রিপশন যাচাই করেন আমাদের অপ্টোমেট্রিস্ট।</p>'
-+'<div class="hb"><button class="p" type="button">ফ্রেম দেখুন ›</button><button class="s" type="button">চোখ পরীক্ষার সময় নিন</button></div>'
-+'<div class="trust"><span>'+ic(I.check,'#0E4F5C',14)+' অপ্টোমেট্রিস্ট যাচাই</span><span>'+ic(I.check,'#0E4F5C',14)+' শোরুমে ফিটিং</span><span>'+ic(I.check,'#0E4F5C',14)+' বিকাশ / নগদ</span></div></div>'
++'<div class="hero">'+heroHTML()
 +'<div class="recw" id="rec">'+recHTML()+'</div></div>'
 +'<div class="strip">প্রেসক্রিপশন আছে? আপলোড করুন। নেই? শোরুমে বিনা অপেক্ষায় চোখ পরীক্ষার সময় বুক করুন।</div>'
 +'<div class="coll"><div class="eyebrow">OUR COLLECTION</div><div class="ctitle"><h3>Eyeglass Frames</h3><a href="#" data-view="'+CATS[0][0]+'">View All Frames →</a></div>'+rows+'</div>'
@@ -538,8 +568,9 @@ else r+='<div><b>ব্যবহার</b><span>চশমা ও লেন্স
 return '<div class="pvdl">'+r+'</div><p class="pvmore">দ্রষ্টব্য: এটি নমুনা তথ্য, আসল তথ্য দিয়ে বদলে নিন।</p>'}
 
 function hpInit(){
-$('p0').innerHTML=hpHTML();badges();
+$('p0').innerHTML=hpHTML();badges();heroInit();
 $('p0').onclick=function(e){
+var heroControl=e.target.closest('[data-hero-go]');if(heroControl){var go=heroControl.getAttribute('data-hero-go');heroSet(go==='prev'?heroIndex-1:go==='next'?heroIndex+1:Number(go));heroPause();return}
 var screen=e.target.closest('[data-screen]');if(screen){if(screen.tagName==='A')e.preventDefault();var route=screen.getAttribute('data-screen').split(':');openScreen(+route[0],+route[1]);return}
 var home=e.target.closest('[data-home]');if(home){e.preventDefault();returnHome();return}
 var av=e.target.closest('a[data-view]');if(av){e.preventDefault();cvOpen(av.getAttribute('data-view'));return}
@@ -1044,7 +1075,7 @@ var seen=false;try{seen=localStorage.getItem(storageKey)==='seen'}catch(e){}if(!
 </script>
 
 <script src="assets/i18n-dictionary.js"></script>
-<script src="assets/bilingual.js"></script>
-<script src="assets/commerce.js"></script>
+<script src="assets/bilingual.js?v=optical-carousel-1"></script>
+<script src="assets/commerce.js?v=optical-carousel-1"></script>
 </body>
 </html>
