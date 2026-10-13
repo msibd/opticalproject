@@ -10,6 +10,8 @@ body[data-project="optical"]{--com-accent:#0e4f5c;--com-soft:#e8f3f4}
 .fbar .com-site-link{border:1px solid var(--com-accent);background:#fff;color:var(--com-accent);border-radius:8px;padding:6px 11px;min-height:34px;font:inherit;font-weight:600;white-space:nowrap;cursor:pointer}
 .fbar .com-site-link[data-com-open="orders"]{margin-left:auto}
 .fbar .cartf{margin-left:0}
+body[data-project="optical"] .fbar .com-site-link[data-com-open="orders"]{margin-left:0}
+body[data-project="optical"] .fbar .cartf{margin-left:auto}
 .com-dashboard-tools{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-left:auto}
 .hdr,.admbar{flex-wrap:wrap}
 .com-dashboard-tools .com-site-link{border:1px solid var(--com-accent);background:#fff;color:var(--com-accent);border-radius:8px;padding:5px 10px;font:inherit;font-size:12px;font-weight:600;cursor:pointer}
