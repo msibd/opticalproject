@@ -346,7 +346,7 @@ svg{vertical-align:-3px}
 @media (max-width:760px){.pv{padding:12px 12px 18px}.pvt{font-size:24px}.pvdl b{flex:0 0 100%}}
 </style>
 <link rel="stylesheet" href="assets/commerce.css?v=top-floating-cart-1">
-<link rel="stylesheet" href="assets/vision-home.css?v=vision-point-1">
+<link rel="stylesheet" href="assets/vision-home.css?v=category-photos-1">
 </head>
 <body data-project="optical">
 <main class="wrap">
@@ -435,8 +435,14 @@ function heroInit(){var root=$('opt-hero');if(!root)return;heroSet(0);heroPlay()
 var visionSaved=[];
 try{visionSaved=JSON.parse(localStorage.getItem('vision-point-favorites')||'[]');if(!Array.isArray(visionSaved))visionSaved=[]}catch(e){visionSaved=[]}
 function visionFavorite(name){return '<button class="vision-fav" type="button" data-fav="'+cvEsc(name)+'" aria-label="'+(visionSaved.includes(name)?'পছন্দের তালিকা থেকে সরান':'পছন্দের তালিকায় যোগ করুন')+'" aria-pressed="'+visionSaved.includes(name)+'">'+(visionSaved.includes(name)?'♥':'♡')+'</button>'}
-var VISION_PHOTOS={'Round Classic':'round-classic','Slim Rectangle':'slim-rectangle','Cat-Eye':'cat-eye','Aviator Metal':'aviator-metal','Browline':'browline','Rimless Light':'rimless-light'};
-function visionProductArt(c,p){var photo=c[0]==='frames'&&VISION_PHOTOS[p[0]];return photo?'<img class="vision-product-photo" src="assets/vision-'+photo+'.webp" alt="'+cvEsc(p[0])+' চশমার ফ্রেম" loading="lazy">':ART(p[2],c[0]==='sun'?'#12262B':'#0E4F5C',c[0]==='sun'?'rgba(18,38,43,.78)':'none','64%')}
+var VISION_PHOTOS={
+ 'Round Classic':'round-classic','Slim Rectangle':'slim-rectangle','Cat-Eye':'cat-eye','Aviator Metal':'aviator-metal','Browline':'browline','Rimless Light':'rimless-light',
+ 'Polarized Aviator':'polarized-aviator','Round Sun':'round-sun','Cat-Eye Sun':'cat-eye-sun','Square Sun':'square-sun','Browline Sun':'browline-sun',
+ 'Single Vision 1.56':'single-vision-156','Blue-cut 1.61':'blue-cut-161','Photochromic 1.56':'photochromic-156','Progressive 1.61':'progressive-161','High-index 1.67':'high-index-167',
+ 'Daily Clear (30)':'daily-clear-30','Monthly Clear (6)':'monthly-clear-6','Soft Colour':'soft-colour','Toric Monthly':'toric-monthly','Multi-solution 360ml':'multi-solution-360ml',
+ 'Hard Case':'hard-case','Cleaning Kit':'cleaning-kit','Lens Spray':'lens-spray','Microfiber Cloth':'microfiber-cloth','Eyewear Chain':'eyewear-chain'
+};
+function visionProductArt(c,p){var photo=VISION_PHOTOS[p[0]];return photo?'<img class="vision-product-photo" src="assets/vision-'+photo+'.webp" alt="'+cvEsc(p[0])+'" loading="lazy" decoding="async">':ART(p[2],c[0]==='sun'?'#12262B':'#0E4F5C',c[0]==='sun'?'rgba(18,38,43,.78)':'none','64%')}
 function hpHTML(){
 var rows=CATS.map(function(c){
  var cards=c[2].map(function(p){var ft=GL.indexOf(p[2])>-1&&c[3]?p[2]:'';return '<div class="pc"'+(ft?' data-ft="'+ft+'"':'')+'><div class="art" style="background:'+TINT[p[3]]+'">'+visionProductArt(c,p)+(ft?'<span class="mb"></span>':'')+'</div>'+visionFavorite(p[0])+'<div class="n">'+p[0]+'</div><div class="vision-card-meta">'+c[1]+'</div><div class="pr">৳ '+p[1]+'</div><button class="add" type="button" data-n="'+p[0]+'">Add to Cart</button></div>'}).join('');
@@ -444,7 +450,12 @@ var rows=CATS.map(function(c){
 });
 var opts='<option value="all">সব ক্যাটেগরি</option>'+CATS.map(function(c){return '<option value="'+c[0]+'">'+c[1]+'</option>'}).join('');
 var nav=[['হোম','home'],['ফ্রেম','frames'],['সানগ্লাস','sun'],['কন্টাক্ট লেন্স','cl'],['চোখ পরীক্ষা','exam'],['লেন্স','lens'],['অফার','offer']].map(function(item,i){var action=item[1]==='home'?'data-home':item[1]==='exam'?'data-screen="2:5"':item[1]==='offer'?'data-opt-promo-nav data-promo-category="frames"':'data-view="'+item[1]+'"';return '<a'+(i===0?' class="on"':'')+' href="#" '+action+'>'+item[0]+'</a>'}).join('');
-var quick=[['ফ্রেম','দৈনন্দিন স্টাইল','round','frames'],['সানগ্লাস','রোদে আরাম','aviator','sun'],['কন্টাক্ট লেন্স','স্বচ্ছ ও সহজ','cl','cl'],['কম্পিউটার চশমা','স্ক্রিন ব্যবহারে','rect','frames'],['লেন্স','প্রয়োজন অনুযায়ী','lens','lens'],['এক্সেসরিজ','যত্ন ও সুরক্ষা','case','acc'],['চোখ পরীক্ষা','শোরুম সেবা','exam','service'],['আমার সাজেশন','আপনার জন্য','cat','recommend']].map(function(item){var action=item[3]==='service'?'data-com-open="service"':item[3]==='recommend'?'data-recommend':'data-view="'+item[3]+'"';var tag=item[3]==='service'?'button':'a';return '<'+tag+' class="vision-quick-link" '+(tag==='button'?'type="button"':'href="'+(item[3]==='recommend'?'#vision-recommend':'#')+'"')+' '+action+'><span class="vision-quick-art">'+(item[2]==='exam'?'<b class="vision-eye-chart">E<br><small>F P</small></b>':ART(item[2],'#0a3670','none','72%'))+'</span><strong>'+item[0]+'</strong><small>'+item[1]+'</small></'+tag+'>'}).join('');
+var quick=[
+ ['ফ্রেম','দৈনন্দিন স্টাইল','round-classic','frames'],['সানগ্লাস','রোদে আরাম','polarized-aviator','sun'],
+ ['কন্টাক্ট লেন্স','স্বচ্ছ ও সহজ','daily-clear-30','cl'],['কম্পিউটার চশমা','স্ক্রিন ব্যবহারে','slim-rectangle','frames'],
+ ['লেন্স','প্রয়োজন অনুযায়ী','blue-cut-161','lens'],['এক্সেসরিজ','যত্ন ও সুরক্ষা','hard-case','acc'],
+ ['চোখ পরীক্ষা','শোরুম সেবা','hero-young-glasses','service'],['আমার সাজেশন','আপনার জন্য','hero-child-glasses','recommend']
+].map(function(item){var action=item[3]==='service'?'data-com-open="service"':item[3]==='recommend'?'data-recommend':'data-view="'+item[3]+'"';var tag=item[3]==='service'?'button':'a';var photo=item[2].indexOf('hero-')===0?item[2]+'.webp':'vision-'+item[2]+'.webp';return '<'+tag+' class="vision-quick-link" '+(tag==='button'?'type="button"':'href="'+(item[3]==='recommend'?'#vision-recommend':'#')+'"')+' '+action+'><span class="vision-quick-art"><img src="assets/'+photo+'" alt="" loading="lazy" decoding="async"></span><strong>'+item[0]+'</strong><small>'+item[1]+'</small></'+tag+'>'}).join('');
 return '<div class="site vision-site"><div class="vision-topbar"><div><span>⌖ ঢাকা, বাংলাদেশ</span><span>শোরুম ও ডেলিভারি সেবা</span></div><div><button type="button" data-com-open="orders">অর্ডার দেখুন</button><a href="#vision-footer">সাহায্য</a><button type="button" data-screen="2:0">আমার অ্যাকাউন্ট</button></div></div>'
 +'<div class="hh"><a class="lg" href="#" data-home><div class="lgc">'+G('round','#fff','none','26px')+'</div><div class="lgt"><b>Vision <em>Point</em></b><span>OPTICAL SHOP</span></div></a><nav class="hn" aria-label="প্রধান মেনু">'+nav+'</nav><button class="hcta" type="button" data-screen="2:3">আমার সাজেশন</button><span class="hph">'+ic(I.phone,'#0755ca',14)+' 01760554477</span></div>'
 +'<div class="fbar"><div class="srch" role="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="ফ্রেম, সানগ্লাস বা লেন্স খুঁজুন…" autocomplete="off" enterkeyhint="search" aria-label="পণ্য খুঁজুন"><button type="button" class="sx" id="qx" aria-label="সার্চ মুছুন" hidden>×</button></div><select id="fsel" aria-label="ক্যাটেগরি">'+opts+'</select><button type="button" id="frange">দাম রেঞ্জ</button><div class="cartf" id="cartf">'+ic(I.bag,'#092b59',20)+'<b id="cn">'+cartN+'</b>কার্ট</div></div>'
@@ -547,8 +558,9 @@ function pvCount(){return pvKind()==='frame'?1:PV.o.qty}
 function pvValid(){var o=PV.o,k=pvKind();if(k==='frame'&&o.lt!=='none'&&!o.rx)return 'প্রেসক্রিপশন আপলোড করুন';if(k==='lens'&&!o.rx)return 'প্রেসক্রিপশন আপলোড করুন';if(k==='cl'&&(!o.sr||!o.sl))return 'ডান ও বাম চোখের পাওয়ার বেছে নিন';return ''}
 function pvWa(){var o=PV.o,k=pvKind(),t='আসসালামু আলাইকুম, আমি অর্ডার করতে চাই:\n'+PV.p[0];if(k==='frame')t+='\nলেন্স: '+(o.lens||'শুধু ফ্রেম')+(o.rx?'\nপ্রেসক্রিপশন: ছবি/ফাইল পাঠাচ্ছি':'');else{t+=' × '+o.qty;if(k==='cl')t+='\nপাওয়ার: ডান '+o.sr+', বাম '+o.sl}return t+'\nমোট: '+pvM(pvTotal())}
 function pvGal(){var p=PV.p,k=PV.o.col||0,t='',sun=PV.c[0]==='sun',fl=sun?'rgba(18,38,43,.78)':'none';
-PVCOL.forEach(function(q,i){t+='<button type="button" class="pvth'+(i===k?' on':'')+'" data-pv="col:'+i+'" aria-label="রঙ: '+PVCN[i]+'" title="'+PVCN[i]+'" style="background:'+TINT[(p[3]+i)%TINT.length]+'">'+ART(p[2],q,fl,'72%')+'</button>'});
-return '<div class="pvimg" style="background:'+TINT[(p[3]+k)%TINT.length]+'">'+ART(p[2],PVCOL[k],fl,'62%')+'</div><div class="pvths">'+t+'</div><div class="pvcn">রঙ: '+PVCN[k]+'</div>'}
+var photo=VISION_PHOTOS[p[0]],photoHTML=photo?'<img class="vision-detail-photo" src="assets/vision-'+photo+'.webp" alt="'+cvEsc(p[0])+'" decoding="async">':'';
+PVCOL.forEach(function(q,i){t+='<button type="button" class="pvth'+(i===k?' on':'')+'" data-pv="col:'+i+'" aria-label="রঙ: '+PVCN[i]+'" title="'+PVCN[i]+'" style="background:'+TINT[(p[3]+i)%TINT.length]+'">'+(i===0&&photoHTML?photoHTML:ART(p[2],q,fl,'72%'))+'</button>'});
+return '<div class="pvimg" style="background:'+TINT[(p[3]+k)%TINT.length]+'">'+(k===0&&photoHTML?photoHTML:ART(p[2],PVCOL[k],fl,'62%'))+'</div><div class="pvths">'+t+'</div><div class="pvcn">রঙ: '+PVCN[k]+'</div>'}
 function pvCard(on,act,t,s){return '<button type="button" class="pvcd'+(on?' on':'')+'" data-pv="'+act+'" aria-pressed="'+!!on+'"><b>'+t+'</b>'+(s?'<small>'+s+'</small>':'')+'</button>'}
 function pvQty(){return '<div class="pvbox"><div class="pvh">পরিমাণ'+(PV.c[0]==='lens'?' (জোড়া)':PV.c[0]==='cl'?' (বক্স)':'')+'</div><div class="pvq"><button type="button" data-pv="q:-1" aria-label="কমান">−</button><b>'+PV.o.qty+'</b><button type="button" data-pv="q:1" aria-label="বাড়ান">+</button></div></div>'}
 function pvRxBox(){var r=PV.o.rx;return '<div class="pvbox"><div class="pvh">Upload prescription</div><p class="pvs2">PDF বা ছবি (JPG, PNG), সর্বোচ্চ ৫MB। প্রেসক্রিপশন না থাকলে শোরুমে চোখ পরীক্ষা করানো যাবে।</p>'+(r?'<div class="pvfile"><span>'+cvEsc(r.n)+' ('+r.s+')</span><button type="button" data-pv="rxclear" aria-label="ফাইল মুছুন">×</button></div>':'<label class="pvdz"><input type="file" id="pvrxf" accept=".pdf,.png,.jpg,.jpeg,application/pdf,image/png,image/jpeg"><span>প্রেসক্রিপশন এখানে ছাড়ুন অথবা <u>ব্রাউজ করুন</u></span></label>')+'</div>'}
