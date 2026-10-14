@@ -346,7 +346,7 @@ svg{vertical-align:-3px}
 @media (max-width:760px){.pv{padding:12px 12px 18px}.pvt{font-size:24px}.pvdl b{flex:0 0 100%}}
 </style>
 <link rel="stylesheet" href="assets/commerce.css?v=top-floating-cart-1">
-<link rel="stylesheet" href="assets/vision-home.css?v=category-photos-1">
+<link rel="stylesheet" href="assets/vision-home.css?v=recommendation-photos-1">
 </head>
 <body data-project="optical">
 <main class="wrap">
@@ -418,7 +418,7 @@ var f=HP.face,u=HP.use;
 var ord=GL.slice().sort(function(a,b){return SC[f][b]-SC[f][a]}).slice(0,3);
 var tiles=FACES.map(function(x){return '<button type="button" class="ft'+(x[0]===f?' on':'')+'" data-f="'+x[0]+'" aria-pressed="'+(x[0]===f)+'">'+ic(FP[x[0]],x[0]===f?'#fff':'#0E4F5C',24)+'<span>'+x[1]+'</span></button>'}).join('');
 var uses=USES.map(function(x){return '<button type="button" class="up'+(x[0]===u?' on':'')+'" data-u="'+x[0]+'">'+x[1]+'</button>'}).join('');
-var cards=ord.map(function(t,i){return '<div class="rc"><div class="art" style="background:'+TINT[GL.indexOf(t)]+'">'+G(t,'#0E4F5C','none','72%')+(i===0?'<span class="mb" style="background:#0E4F5C;color:#fff">সেরা মিল</span>':'')+'</div><div class="rn">'+FNAME[t]+'</div><div class="rp">'+SC[f][t]+'% মিল</div><div class="rf">'+FFEAT[t]+'</div></div>'}).join('');
+var cards=ord.map(function(t,i){var name=FNAME[t],photo=VISION_PHOTOS[name];return '<a class="rc" href="#" data-rec-product="'+cvEsc(name)+'"><div class="art" style="background:'+TINT[GL.indexOf(t)]+'">'+(photo?'<img src="assets/vision-'+photo+'.webp" alt="'+cvEsc(name)+'" loading="lazy" decoding="async">':G(t,'#0E4F5C','none','72%'))+(i===0?'<span class="mb" style="background:#0E4F5C;color:#fff">সেরা মিল</span>':'')+'</div><div class="rn">'+name+'</div><div class="rp">'+SC[f][t]+'% মিল</div><div class="rf">'+FFEAT[t]+'</div></a>'}).join('');
 return '<div class="rt">আপনার জন্য সাজেশন</div><div class="rl">১. মুখের আকৃতি</div><div class="fts">'+tiles+'</div><div class="rl">২. প্রধান ব্যবহার</div><div class="ups">'+uses+'</div><div class="rrule">'+FRULE[f]+'</div><div class="rcs">'+cards+'</div><div class="lensb"><b>লেন্স সাজেশন: '+LENSU[u][0]+'</b><span>'+LENSU[u][1]+'</span></div><div class="rnote">এটি স্টাইল ও ব্যবহারভিত্তিক পরামর্শ। পাওয়ার ও চূড়ান্ত লেন্স অপ্টোমেট্রিস্ট যাচাই করেন।</div>'}
 var HERO_SLIDES=[
  {image:'vision-hero-glasses.webp',alt:'পাথরের ডিসপ্লেতে টর্টয়েসশেল ফ্রেমের চশমা',tag:'Vision Point Optical',title:'প্রতিদিনের দৃষ্টি, আরও সুন্দর',description:'পছন্দের ফ্রেম, প্রয়োজন অনুযায়ী লেন্স এবং চোখের যত্ন—সব এক জায়গায়।',offer:'category',trust:true},
@@ -595,6 +595,7 @@ $('p0').onclick=function(e){
 var heroControl=e.target.closest('[data-hero-go]');if(heroControl){var go=heroControl.getAttribute('data-hero-go');heroSet(go==='prev'?heroIndex-1:go==='next'?heroIndex+1:Number(go));heroPause();return}
 var screen=e.target.closest('[data-screen]');if(screen){if(screen.tagName==='A')e.preventDefault();var route=screen.getAttribute('data-screen').split(':');openScreen(+route[0],+route[1]);return}
 var home=e.target.closest('[data-home]');if(home){e.preventDefault();returnHome();return}
+var recommendation=e.target.closest('[data-rec-product]');if(recommendation){e.preventDefault();pvOpen(recommendation.getAttribute('data-rec-product'));return}
 var av=e.target.closest('a[data-view]');if(av){e.preventDefault();cvOpen(av.getAttribute('data-view'));return}
 var cx=e.target.closest('[data-cv]');if(cx){cvAct(cx.getAttribute('data-cv'));return}
 var px=e.target.closest('[data-pv]');if(px){if(px.tagName==='A')e.preventDefault();pvAct(px.getAttribute('data-pv'));return}
