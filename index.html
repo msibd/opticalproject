@@ -346,7 +346,7 @@ svg{vertical-align:-3px}
 @media (max-width:760px){.pv{padding:12px 12px 18px}.pvt{font-size:24px}.pvdl b{flex:0 0 100%}}
 </style>
 <link rel="stylesheet" href="assets/commerce.css?v=top-floating-cart-1">
-<link rel="stylesheet" href="assets/vision-home.css?v=recommendation-photos-1">
+<link rel="stylesheet" href="assets/vision-home.css?v=header-2">
 </head>
 <body data-project="optical">
 <main class="wrap">
@@ -364,7 +364,7 @@ svg{vertical-align:-3px}
 var IMG={};
 var $=function(id){return document.getElementById(id)};
 var ic=function(d,c,s){s=s||18;return '<svg width="'+s+'" height="'+s+'" viewBox="0 0 24 24" fill="none" stroke="'+c+'" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+d+'</svg>'};
-var I={check:'<path d="M5 12l5 5L20 7"/>',bag:'<path d="M6 8h12l-1 12H7z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>',left:'<path d="M15 6l-6 6 6 6"/>',right:'<path d="M9 6l6 6-6 6"/>',phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/>',heart:'<path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.500-7 10-7 10z"/>'};
+var I={check:'<path d="M5 12l5 5L20 7"/>',bag:'<path d="M6 8h12l-1 12H7z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>',cart:'<circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M2 3h2l2.4 12.3a2 2 0 0 0 2 1.7h9a2 2 0 0 0 2-1.6L21 7H5"/>',left:'<path d="M15 6l-6 6 6 6"/>',right:'<path d="M9 6l6 6-6 6"/>',phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/>',heart:'<path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.500-7 10-7 10z"/>'};
 
 /* ================= SVG ART ================= */
 var GL=['round','rect','cat','aviator','brow','rimless'];
@@ -434,6 +434,7 @@ function heroPlay(){heroPause();if(window.matchMedia('(prefers-reduced-motion: r
 function heroInit(){var root=$('opt-hero');if(!root)return;heroSet(0);heroPlay();root.addEventListener('mouseenter',heroPause);root.addEventListener('mouseleave',heroPlay);root.addEventListener('focusin',heroPause);root.addEventListener('focusout',function(e){if(!root.contains(e.relatedTarget))heroPlay()});root.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();heroSet(heroIndex+(e.key==='ArrowRight'?1:-1));heroPause()}})}
 var visionSaved=[];
 try{visionSaved=JSON.parse(localStorage.getItem('vision-point-favorites')||'[]');if(!Array.isArray(visionSaved))visionSaved=[]}catch(e){visionSaved=[]}
+function visionWishlistRender(){var count=$('vision-wishlist-count'),panel=$('vision-wishlist-panel'),list=$('vision-wishlist-list');if(count){count.textContent=visionSaved.length;count.hidden=!visionSaved.length}if(list)list.innerHTML=visionSaved.length?visionSaved.map(function(name){return '<button type="button" data-wishlist-product="'+cvEsc(name)+'">'+cvEsc(name)+' →</button>'}).join(''):'<p>এখনও কোনো পণ্য সংরক্ষিত নেই।</p>'}
 function visionFavorite(name){return '<button class="vision-fav" type="button" data-fav="'+cvEsc(name)+'" aria-label="'+(visionSaved.includes(name)?'পছন্দের তালিকা থেকে সরান':'পছন্দের তালিকায় যোগ করুন')+'" aria-pressed="'+visionSaved.includes(name)+'">'+(visionSaved.includes(name)?'♥':'♡')+'</button>'}
 var VISION_PHOTOS={
  'Round Classic':'round-classic','Slim Rectangle':'slim-rectangle','Cat-Eye':'cat-eye','Aviator Metal':'aviator-metal','Browline':'browline','Rimless Light':'rimless-light',
@@ -449,16 +450,16 @@ var rows=CATS.map(function(c){
  return '<div class="crow" data-c="'+c[0]+'"><div class="rh"><h4>'+c[1]+'</h4><a href="#" data-view="'+c[0]+'">সব পণ্য দেখুন →</a></div><div class="rw"><button class="arr l" type="button" aria-label="আগে" data-d="-1">'+ic(I.left,'#fff',16)+'</button><div class="rail">'+cards+'</div><button class="arr r" type="button" aria-label="পরে" data-d="1">'+ic(I.right,'#fff',16)+'</button></div></div>'
 });
 var opts='<option value="all">সব ক্যাটেগরি</option>'+CATS.map(function(c){return '<option value="'+c[0]+'">'+c[1]+'</option>'}).join('');
-var nav=[['হোম','home'],['ফ্রেম','frames'],['সানগ্লাস','sun'],['কন্টাক্ট লেন্স','cl'],['চোখ পরীক্ষা','exam'],['লেন্স','lens'],['অফার','offer']].map(function(item,i){var action=item[1]==='home'?'data-home':item[1]==='exam'?'data-screen="2:5"':item[1]==='offer'?'data-opt-promo-nav data-promo-category="frames"':'data-view="'+item[1]+'"';return '<a'+(i===0?' class="on"':'')+' href="#" '+action+'>'+item[0]+'</a>'}).join('');
+var nav=[['ফ্রেম','frames'],['সানগ্লাস','sun'],['কন্টাক্ট লেন্স','cl'],['চোখ পরীক্ষা','exam'],['লেন্স','lens'],['অফার','offer']].map(function(item){var action=item[1]==='exam'?'data-screen="2:5"':item[1]==='offer'?'data-opt-promo-nav data-promo-category="frames"':'data-view="'+item[1]+'"';return '<a href="#" '+action+'>'+item[0]+'</a>'}).join('');
 var quick=[
  ['ফ্রেম','দৈনন্দিন স্টাইল','round-classic','frames'],['সানগ্লাস','রোদে আরাম','polarized-aviator','sun'],
  ['কন্টাক্ট লেন্স','স্বচ্ছ ও সহজ','daily-clear-30','cl'],['কম্পিউটার চশমা','স্ক্রিন ব্যবহারে','slim-rectangle','frames'],
  ['লেন্স','প্রয়োজন অনুযায়ী','blue-cut-161','lens'],['এক্সেসরিজ','যত্ন ও সুরক্ষা','hard-case','acc'],
  ['চোখ পরীক্ষা','শোরুম সেবা','hero-young-glasses','service'],['আমার সাজেশন','আপনার জন্য','hero-child-glasses','recommend']
 ].map(function(item){var action=item[3]==='service'?'data-com-open="service"':item[3]==='recommend'?'data-recommend':'data-view="'+item[3]+'"';var tag=item[3]==='service'?'button':'a';var photo=item[2].indexOf('hero-')===0?item[2]+'.webp':'vision-'+item[2]+'.webp';return '<'+tag+' class="vision-quick-link" '+(tag==='button'?'type="button"':'href="'+(item[3]==='recommend'?'#vision-recommend':'#')+'"')+' '+action+'><span class="vision-quick-art"><img src="assets/'+photo+'" alt="" loading="lazy" decoding="async"></span><strong>'+item[0]+'</strong><small>'+item[1]+'</small></'+tag+'>'}).join('');
-return '<div class="site vision-site"><div class="vision-topbar"><div><span>⌖ ঢাকা, বাংলাদেশ</span><span>শোরুম ও ডেলিভারি সেবা</span></div><div><button type="button" data-com-open="orders">অর্ডার দেখুন</button><a href="#vision-footer">সাহায্য</a><button type="button" data-screen="2:0">আমার অ্যাকাউন্ট</button></div></div>'
-+'<div class="hh"><a class="lg" href="#" data-home><div class="lgc">'+G('round','#fff','none','26px')+'</div><div class="lgt"><b>Vision <em>Point</em></b><span>OPTICAL SHOP</span></div></a><nav class="hn" aria-label="প্রধান মেনু">'+nav+'</nav><button class="hcta" type="button" data-screen="2:3">আমার সাজেশন</button><span class="hph">'+ic(I.phone,'#0755ca',14)+' 01760554477</span></div>'
-+'<div class="fbar"><div class="srch" role="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="ফ্রেম, সানগ্লাস বা লেন্স খুঁজুন…" autocomplete="off" enterkeyhint="search" aria-label="পণ্য খুঁজুন"><button type="button" class="sx" id="qx" aria-label="সার্চ মুছুন" hidden>×</button></div><select id="fsel" aria-label="ক্যাটেগরি">'+opts+'</select><button type="button" id="frange">দাম রেঞ্জ</button><div class="cartf" id="cartf">'+ic(I.bag,'#092b59',20)+'<b id="cn">'+cartN+'</b>কার্ট</div></div>'
+return '<div class="site vision-site"><div class="vision-topbar"><div class="vision-top-left"><a href="#vision-footer">'+ic('<path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>','#fff',15)+' ঢাকা, বাংলাদেশ⌄</a><span class="vision-shipping">'+ic('<path d="M3 6h11v11H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="19" r="1.5"/><circle cx="18" cy="19" r="1.5"/>','#fff',17)+' <span data-vision-delivery>ডেলিভারির অফার দেখুন</span></span></div><div class="vision-top-links"><button type="button" data-com-open="orders">অর্ডার দেখুন</button><a href="#vision-footer">সাহায্য</a><button type="button" data-screen="2:0">সাইন ইন / রেজিস্টার</button><a class="hph" href="tel:+8801760554477">'+ic(I.phone,'#fff',14)+' 01760554477</a></div></div>'
++'<div class="hh"><a class="lg" href="#" data-home><div class="lgc">'+G('round','#0755e8','none','52px')+'</div><div class="lgt"><b>Vision <em>Point</em></b><span>CLEARER PEOPLE BRIGHTER DAYS</span></div></a><nav class="hn" aria-label="প্রধান মেনু">'+nav+'</nav><div class="srch" role="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="ফ্রেম, ব্র্যান্ড বা স্টাইল খুঁজুন…" autocomplete="off" enterkeyhint="search" aria-label="পণ্য খুঁজুন"><button type="button" class="sx" id="qx" aria-label="সার্চ মুছুন" hidden>×</button></div><button class="vision-wishlist-toggle" type="button" data-wishlist-open aria-label="পছন্দের তালিকা">'+ic(I.heart,'#082c5d',25)+'<span class="vision-wishlist-count" id="vision-wishlist-count"'+(visionSaved.length?'':' hidden')+'>'+visionSaved.length+'</span></button><div class="cartf" id="cartf">'+ic(I.cart,'#082c5d',26)+'<b id="cn">'+cartN+'</b><span class="vision-sr-only">কার্ট</span></div></div>'
++'<div class="fbar"><select id="fsel" aria-label="ক্যাটেগরি">'+opts+'</select><button type="button" id="frange">দাম রেঞ্জ</button><button class="hcta" type="button" data-screen="2:3">আমার সাজেশন</button></div>'
 +'<div id="cv" class="cv" hidden></div><div id="pv" class="pv" hidden></div>'
 +'<div class="hero">'+heroHTML()+'</div>'
 +'<div class="vision-quick" aria-label="পণ্যের বিভাগ">'+quick+'</div>'
@@ -590,8 +591,12 @@ else r+='<div><b>ব্যবহার</b><span>চশমা ও লেন্স
 return '<div class="pvdl">'+r+'</div><p class="pvmore">দ্রষ্টব্য: এটি নমুনা তথ্য, আসল তথ্য দিয়ে বদলে নিন।</p>'}
 
 function hpInit(){
-$('p0').innerHTML=hpHTML();badges();heroInit();
+$('p0').innerHTML=hpHTML();$('p0').insertAdjacentHTML('beforeend','<div class="vision-wishlist-panel" id="vision-wishlist-panel" hidden><div class="vision-wishlist-box" role="dialog" aria-modal="true" aria-label="পছন্দের পণ্য"><button type="button" class="vision-wishlist-close" data-wishlist-close aria-label="বন্ধ করুন">×</button><h2>পছন্দের পণ্য</h2><div id="vision-wishlist-list"></div></div></div>');visionWishlistRender();badges();heroInit();
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&$('vision-wishlist-panel')&&!$('vision-wishlist-panel').hidden)$('vision-wishlist-panel').hidden=true});
 $('p0').onclick=function(e){
+var wishProduct=e.target.closest('[data-wishlist-product]');if(wishProduct){$('vision-wishlist-panel').hidden=true;pvOpen(wishProduct.getAttribute('data-wishlist-product'));return}
+if(e.target.closest('[data-wishlist-close]')||e.target.id==='vision-wishlist-panel'){$('vision-wishlist-panel').hidden=true;return}
+if(e.target.closest('[data-wishlist-open]')){visionWishlistRender();$('vision-wishlist-panel').hidden=false;return}
 var heroControl=e.target.closest('[data-hero-go]');if(heroControl){var go=heroControl.getAttribute('data-hero-go');heroSet(go==='prev'?heroIndex-1:go==='next'?heroIndex+1:Number(go));heroPause();return}
 var screen=e.target.closest('[data-screen]');if(screen){if(screen.tagName==='A')e.preventDefault();var route=screen.getAttribute('data-screen').split(':');openScreen(+route[0],+route[1]);return}
 var home=e.target.closest('[data-home]');if(home){e.preventDefault();returnHome();return}
@@ -599,7 +604,7 @@ var recommendation=e.target.closest('[data-rec-product]');if(recommendation){e.p
 var av=e.target.closest('a[data-view]');if(av){e.preventDefault();cvOpen(av.getAttribute('data-view'));return}
 var cx=e.target.closest('[data-cv]');if(cx){cvAct(cx.getAttribute('data-cv'));return}
 var px=e.target.closest('[data-pv]');if(px){if(px.tagName==='A')e.preventDefault();pvAct(px.getAttribute('data-pv'));return}
-var fav=e.target.closest('[data-fav]');if(fav){var name=fav.getAttribute('data-fav'),at=visionSaved.indexOf(name);if(at<0)visionSaved.push(name);else visionSaved.splice(at,1);try{localStorage.setItem('vision-point-favorites',JSON.stringify(visionSaved))}catch(err){}document.querySelectorAll('[data-fav]').forEach(function(button){if(button.getAttribute('data-fav')===name){var selected=visionSaved.includes(name);button.setAttribute('aria-pressed',String(selected));button.setAttribute('aria-label',selected?'পছন্দের তালিকা থেকে সরান':'পছন্দের তালিকায় যোগ করুন');button.textContent=selected?'♥':'♡'}});return}
+var fav=e.target.closest('[data-fav]');if(fav){var name=fav.getAttribute('data-fav'),at=visionSaved.indexOf(name);if(at<0)visionSaved.push(name);else visionSaved.splice(at,1);try{localStorage.setItem('vision-point-favorites',JSON.stringify(visionSaved))}catch(err){}document.querySelectorAll('[data-fav]').forEach(function(button){if(button.getAttribute('data-fav')===name){var selected=visionSaved.includes(name);button.setAttribute('aria-pressed',String(selected));button.setAttribute('aria-label',selected?'পছন্দের তালিকা থেকে সরান':'পছন্দের তালিকায় যোগ করুন');button.textContent=selected?'♥':'♡'}});visionWishlistRender();return}
 var pcd=e.target.closest('.pc');if(pcd&&!e.target.closest('button')){var nn=pcd.querySelector('.n');if(nn){pvOpen(nn.textContent);return}}
 var t=e.target.closest('button');if(!t)return;
 if(t.matches('.hb .p')){cvOpen('frames');return}
@@ -1099,7 +1104,7 @@ var seen=false;try{seen=localStorage.getItem(storageKey)==='seen'}catch(e){}if(!
 </script>
 
 <script src="assets/i18n-dictionary.js"></script>
-<script src="assets/bilingual.js?v=vision-point-1"></script>
-<script src="assets/commerce.js?v=vision-point-1"></script>
+<script src="assets/bilingual.js?v=header-2"></script>
+<script src="assets/commerce.js?v=header-2"></script>
 </body>
 </html>

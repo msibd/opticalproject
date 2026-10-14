@@ -26,6 +26,36 @@ body[data-project="optical"] .wrap{max-width:1500px}
 .vision-site .fbar .cartf{background:#fff;color:#082c5d;border:1px solid #b8cbe8;border-radius:12px}
 .vision-site .fbar .cartf.is-floating{background:#fff;color:#082c5d;box-shadow:0 12px 30px #082c5d38}
 .vision-site .cartf b{background:#0755e8}
+/* Compact retail header */
+.vision-site .vision-topbar{padding:5px 24px;min-height:32px;gap:10px}
+.vision-site .vision-top-left,.vision-site .vision-top-links{display:flex;align-items:center;gap:14px}
+.vision-site .vision-topbar svg{vertical-align:middle;margin-right:4px}
+.vision-site .vision-top-links .langbar{display:inline-flex;gap:4px;margin:0}
+.vision-site .vision-top-links .langbar button{border:1px solid #b5c9e8;padding:2px 6px;border-radius:4px;font-size:10px;color:#fff}
+.vision-site .vision-top-links .langbar button.on{background:#fff;color:#082c5d}
+.vision-site .hh{flex-wrap:nowrap;gap:clamp(10px,1.5vw,24px);padding:8px 24px;min-height:68px}
+.vision-site .lg{min-width:162px;gap:4px}
+.vision-site .lgc{width:36px;height:36px;background:none;border:0;border-radius:0;overflow:visible}
+.vision-site .lgc svg{width:40px;height:40px}
+.vision-site .lgt b{font-size:19px}
+.vision-site .lgt span{font-size:6px;letter-spacing:.11em}
+.vision-site .hn{justify-content:flex-start;flex:1 1 auto;gap:2px;white-space:nowrap;flex-wrap:nowrap}
+.vision-site .hn a{font-size:12px;padding:5px 6px;border-radius:4px}
+.vision-site .hh .srch{flex:0 1 360px;max-width:360px;min-width:140px}
+.vision-site .hh .srch input{min-height:40px;border-radius:999px;background:#f8f9fb;font-size:12px}
+.vision-wishlist-toggle{position:relative;flex:none;width:34px;height:36px;padding:4px;border:0;background:transparent;color:#082c5d}
+.vision-wishlist-count{position:absolute;top:-4px;right:-5px;min-width:17px;height:17px;border-radius:50%;background:#0755e8;color:#fff;font:700 10px/17px Arial,sans-serif}
+.vision-wishlist-count[hidden]{display:none}
+.vision-site .hh .cartf{flex:none;margin:0;padding:5px 7px;border:0;box-shadow:none;background:transparent;cursor:pointer}
+.vision-site .hh .cartf b{left:23px;top:-4px}
+.vision-site .hh .cartf.is-floating{position:fixed;right:var(--cart-dock-right,16px);top:14px;z-index:30;background:#fff;border:1px solid #b8cbe8;border-radius:12px;box-shadow:0 12px 30px #082c5d38}
+.vision-site .fbar{padding:7px 24px}
+.vision-site .fbar select{min-height:34px}.vision-site .fbar button{min-height:34px}
+.vision-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.vision-wishlist-panel:not([hidden]){position:fixed;inset:0;z-index:70;background:#071e3b99;display:flex;align-items:center;justify-content:center;padding:20px}
+.vision-wishlist-box{position:relative;width:min(440px,100%);max-height:80vh;overflow:auto;padding:22px;background:#fff;border-radius:16px;box-shadow:0 20px 60px #071e3b55}
+.vision-wishlist-box h2{margin:0 0 13px;font-size:22px}.vision-wishlist-box #vision-wishlist-list{display:grid;gap:8px}.vision-wishlist-box #vision-wishlist-list button{background:#f4f8fe;border:1px solid #ccdaf0;text-align:left;color:#082c5d}
+.vision-wishlist-close{position:absolute;right:16px;top:12px;border:0;background:#e9f2ff;color:#082c5d;font-size:22px;padding:0 8px}
 .vision-site .hero{display:block;padding:0;background:#f3f7fb}
 .vision-site .opt-hero{min-height:410px;border-radius:0;box-shadow:none;background:#f8f6f1}
 .vision-site .opt-slide img{object-position:center center}
@@ -160,4 +190,27 @@ body[data-project="optical"] .wrap{max-width:1500px}
  .vision-exam-promo img{width:50%}
  .vision-exam-promo>div{max-width:67%!important}
  .vision-benefits>div{padding:7px 8px}
+}
+@media(max-width:1120px){
+ .vision-site .hh{flex-wrap:wrap}
+ .vision-site .hn{order:3;flex:0 0 100%;justify-content:flex-start;overflow-x:auto;scrollbar-width:none}
+ .vision-site .hh .srch{flex:1 1 240px;max-width:none}
+}
+@media(max-width:760px){
+ .vision-site .vision-topbar{padding:6px 14px;flex-wrap:wrap}
+ .vision-site .vision-top-links{gap:8px}
+ .vision-site .hh{padding:8px 14px}
+ .vision-site .fbar{padding:7px 14px}
+ .vision-site .hh .lg{min-width:132px}
+ .vision-site .hh .srch{order:4;flex:1 1 100%}
+ .vision-site .hh .cartf{order:2}
+ .vision-wishlist-toggle{margin-left:auto;order:1}
+}
+@media(max-width:520px){
+ .vision-site .vision-topbar>div:last-child{display:flex}
+ .vision-site .vision-topbar .vision-shipping{display:none}
+ .vision-site .vision-top-links>a,.vision-site .vision-top-links>button{display:none}
+ .vision-site .vision-top-links .langbar{display:flex}
+ .vision-site .hh .lgc{width:31px;height:31px}
+ .vision-site .lgt b{font-size:16px}
 }

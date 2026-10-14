@@ -51,7 +51,10 @@
     'ফ্রেম পরখ করে দেখুন':'Try frames in store','অর্ডারের অগ্রগতি':'Order progress',
     'আপনার অর্ডার দেখুন':'Track your order','ফ্রেম, লেন্স ও চোখের যত্ন—এক জায়গায়।':'Frames, lenses and eye care in one place.',
     'দ্রুত লিংক':'Quick links','ফ্রেম দেখুন':'Shop frames','শোরুম: ধানমন্ডি, ঢাকা (নমুনা)':'Showroom: Dhanmondi, Dhaka (sample)',
-    'পাওয়ার ও লেন্স চূড়ান্ত করার আগে অপ্টোমেট্রিস্টের পরামর্শ নিন।':'Ask an optometrist before finalising your prescription and lenses.'
+    'পাওয়ার ও লেন্স চূড়ান্ত করার আগে অপ্টোমেট্রিস্টের পরামর্শ নিন।':'Ask an optometrist before finalising your prescription and lenses.',
+    'ঢাকা, বাংলাদেশ⌄':'Dhaka, Bangladesh⌄','অর্ডার দেখুন':'Track Order','সাহায্য':'Help','সাইন ইন / রেজিস্টার':'Sign In / Register',
+    'পছন্দের তালিকা':'Wishlist','পছন্দের পণ্য':'Saved products','এখনও কোনো পণ্য সংরক্ষিত নেই।':'No products saved yet.',
+    'ফ্রেম, ব্র্যান্ড বা স্টাইল খুঁজুন…':'Search frames, brands or styles…','বন্ধ করুন':'Close'
   };
   var bangla={
     'Home':'হোম','Cakes':'কেক','Dessert':'ডেজার্ট','Desserts':'ডেজার্ট','Sweets':'মিষ্টি','Pastry':'পেস্ট্রি','Pastries':'পেস্ট্রি',
