@@ -26,7 +26,32 @@
     'চোখ পরীক্ষার সময় নিন; পাওয়ার ও লেন্স অপ্টোমেট্রিস্ট যাচাই করবেন।':'Book an eye exam; an optometrist will check your prescription and lenses.',
     'চশমা পরা শিশু ও তার মা':'A child wearing glasses with his mother','চশমা পরা তরুণ পেশাজীবী নারী':'A young professional woman wearing glasses',
     'চশমা পরে বই পড়ছেন প্রবীণ ব্যক্তি':'An older man reading a book while wearing glasses','আগের স্লাইড':'Previous slide','পরের স্লাইড':'Next slide',
-    'স্লাইড 1 দেখুন':'Show slide 1','স্লাইড 2 দেখুন':'Show slide 2','স্লাইড 3 দেখুন':'Show slide 3'
+    'স্লাইড 1 দেখুন':'Show slide 1','স্লাইড 2 দেখুন':'Show slide 2','স্লাইড 3 দেখুন':'Show slide 3','স্লাইড 4 দেখুন':'Show slide 4',
+    'ঢাকা, বাংলাদেশ':'Dhaka, Bangladesh','শোরুম ও ডেলিভারি সেবা':'Showroom and delivery service',
+    'অর্ডার দেখুন':'Track order','সাহায্য':'Help','আমার অ্যাকাউন্ট':'My account','অফার':'Offers',
+    'ফ্রেম, সানগ্লাস বা লেন্স খুঁজুন…':'Search frames, sunglasses or lenses…',
+    'পাথরের ডিসপ্লেতে টর্টয়েসশেল ফ্রেমের চশমা':'Tortoiseshell glasses on a stone display',
+    'প্রতিদিনের দৃষ্টি, আরও সুন্দর':'Your everyday vision, made better',
+    'পছন্দের ফ্রেম, প্রয়োজন অনুযায়ী লেন্স এবং চোখের যত্ন—সব এক জায়গায়।':'Stylish frames, tailored lenses and expert eye care—all in one place.',
+    '✓ শোরুমে ফিটিং':'✓ In-store fitting','✓ প্রেসক্রিপশন যাচাই':'✓ Prescription check','✓ বিক্রয়োত্তর সহায়তা':'✓ After-sales support',
+    'পণ্যের বিভাগ':'Shop by category','দৈনন্দিন স্টাইল':'Everyday style','রোদে আরাম':'Sun protection',
+    'স্বচ্ছ ও সহজ':'Comfort and clarity','কম্পিউটার চশমা':'Computer glasses','স্ক্রিন ব্যবহারে':'For screen use',
+    'প্রয়োজন অনুযায়ী':'Tailored to you','এক্সেসরিজ':'Accessories','যত্ন ও সুরক্ষা':'Care and protection',
+    'শোরুম সেবা':'Showroom service','আপনার জন্য':'For you','আপনার জন্য বাছাই':'Picked for you',
+    'জনপ্রিয় ফ্রেম':'Popular frames','সব ফ্রেম দেখুন →':'View all frames →',
+    'প্রেসক্রিপশন লেন্স':'Prescription lenses','আপনার দৃষ্টির জন্য সঠিক লেন্স':'Lenses tailored to your vision',
+    'সিঙ্গেল ভিশন, ব্লু-কাট ও প্রগ্রেসিভ—প্রয়োজন বুঝে বেছে নিন।':'Single vision, blue light and progressive lenses—choose what suits you.',
+    'লেন্স দেখুন →':'Explore lenses →','চোখ পরীক্ষার সময় নিন':'Book an eye exam',
+    'পাওয়ার ও লেন্সের তথ্য অপ্টোমেট্রিস্টের সঙ্গে যাচাই করুন।':'Check your prescription and lens details with an optometrist.',
+    'সময় বুক করুন →':'Book now →','আপনার মুখ ও ব্যবহারের জন্য':'For your face and lifestyle',
+    'মুখের আকৃতি ও দৈনন্দিন ব্যবহার বেছে ফ্রেমের সাজেশন দেখুন। চূড়ান্ত পাওয়ার শোরুমে যাচাই করুন।':'Choose your face shape and daily use to see frame suggestions. Confirm your prescription in store.',
+    'আরও সংগ্রহ':'Explore more','সব পণ্য দেখুন →':'View all products →',
+    'ডেলিভারি ও সংগ্রহ':'Delivery and collection','checkout-এ পদ্ধতি বেছে নিন':'Choose an option at checkout',
+    'প্রেসক্রিপশন যাচাই':'Prescription check','চোখের পাওয়ার নিশ্চিত করুন':'Confirm your prescription',
+    'ফ্রেম পরখ করে দেখুন':'Try frames in store','অর্ডারের অগ্রগতি':'Order progress',
+    'আপনার অর্ডার দেখুন':'Track your order','ফ্রেম, লেন্স ও চোখের যত্ন—এক জায়গায়।':'Frames, lenses and eye care in one place.',
+    'দ্রুত লিংক':'Quick links','ফ্রেম দেখুন':'Shop frames','শোরুম: ধানমন্ডি, ঢাকা (নমুনা)':'Showroom: Dhanmondi, Dhaka (sample)',
+    'পাওয়ার ও লেন্স চূড়ান্ত করার আগে অপ্টোমেট্রিস্টের পরামর্শ নিন।':'Ask an optometrist before finalising your prescription and lenses.'
   };
   var bangla={
     'Home':'হোম','Cakes':'কেক','Dessert':'ডেজার্ট','Desserts':'ডেজার্ট','Sweets':'মিষ্টি','Pastry':'পেস্ট্রি','Pastries':'পেস্ট্রি',
@@ -40,7 +65,8 @@
     'Lens type':'লেন্সের ধরন','Lens details':'লেন্সের বিস্তারিত','← Back to types':'← ধরনে ফিরুন',
     'Pending':'অপেক্ষমাণ','Confirmed':'নিশ্চিত','Preparing':'প্রস্তুত হচ্ছে','Delivered':'পৌঁছেছে','Cancelled':'বাতিল',
     'Paid':'পরিশোধিত','Home Page':'হোমপেজ','Homepage':'হোমপেজ','Profile':'প্রোফাইল','Settings':'সেটিংস',
-    'All':'সব','All prices':'সব দাম','Sort by':'সাজান'
+    'All':'সব','All prices':'সব দাম','Sort by':'সাজান',
+    'PERSONALIZED FIT':'ব্যক্তিগত সাজেশন','EXPLORE MORE':'আরও দেখুন'
   };
   var textState=new WeakMap(),attrState=new WeakMap();
   var lang='bn';
@@ -98,8 +124,8 @@
     lang=next==='en'?'en':'bn';
     window.AppI18n.language=lang;
     document.documentElement.lang=lang;
-    document.title=lang==='en'?(project==='optical'?'IDCAL Optical — Homepage and dashboards':'IDCAL Cake & Pastery — Homepage and dashboards'):
-      (project==='optical'?'IDCAL Optical: Optical Recommendation সহ হোমপেজ, Dashboard ও Roadmap':'IDCAL Cake & Pastery: হোমপেজ, ফিচার, Dashboard ও Roadmap');
+    document.title=lang==='en'?(project==='optical'?'Vision Point Optical Shop — Homepage and dashboards':'IDCAL Cake & Pastery — Homepage and dashboards'):
+      (project==='optical'?'Vision Point Optical Shop — হোমপেজ ও ড্যাশবোর্ড':'IDCAL Cake & Pastery: হোমপেজ, ফিচার, Dashboard ও Roadmap');
     try{localStorage.setItem('idcal-language-'+project,lang)}catch(e){}
     document.querySelectorAll('.langbar [data-lang]').forEach(function(button){var active=button.getAttribute('data-lang')===lang;button.classList.toggle('on',active);button.setAttribute('aria-pressed',String(active))});
     scan(document.body);
